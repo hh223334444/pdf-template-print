@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="page.css" rel="stylesheet" />
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/wangeditor/dist/wangEditor.js"></script>
+    <script src="lib/i18next/i18next.js"></script>
+    <script src="/js/PageHeader.js"></script>
+    <script src="/js/PagePerView.js"></script>
+    <script src="/js/PageBreak.js"></script>
+    <script src="/js/local/en.js"></script>
+    <style media="print">
+        #toolbar-container {
+            display: none
+        }
+    </style>
+    <style type="text/css">
+        body {
+            background-color: #eee
+        }
+
+        #content {
+            margin-top: 40px
+        }
+
+        .w-e-text {
+            overflow-y: hidden !important;
+            overflow-x: hidden !important;
+            width: 21cm !important;
+            min-height: 28.9cm !important;
+            padding: 0cm 2cm !important;
+            margin: 0.5cm auto;
+            /*border: 1px #D3D3D3 solid;*/
+            /*border-radius: 5px;*/
+            background: white;
+            /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);*/
+        }
+        .page {
+            width: 21cm !important;
+            min-height: 29.7cm !important;
+            padding: 0cm 2cm !important;
+            margin: 0.5cm auto;
+            /*border: 1px #D3D3D3 solid;*/
+            /*border-radius: 5px;*/
+            background: white;
+            /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);*/
+        }
+        .w-e-text-container {
+            background-color: #eee !important;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+     
+    <div id="content">
+    </div>
+ 
+</body>
+</html>
+<script type="text/javascript">
+    
+    const E = window.wangEditor
+ 
+    const pageHeader = 'pageHeader' 
+    const pageBreak = 'pageBreak'
+    const pagePerView = 'pagePerView'
+
+    E.registerMenu(pageHeader, PageHeader);
+    E.registerMenu(pageBreak, PageBreak);
+    E.registerMenu(pagePerView, PagePerView)
+
+    const editor = new E('#content')
+
+    editor.config.uploadImgShowBase64 = true;
+    editor.config.placeholder = "";
+    //editor.config.showFullScreen = true;
+    //editor.config.showMenuTooltips = true
+    editor.config.height = 750
+    //editor.config.lang = 'en'
+    //editor.i18next = window.i18next;
+    //editor.config.languages['en'] = {
+    //    wangEditor: en
+    //}
+    editor.create();
+    editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
+   
+</script>

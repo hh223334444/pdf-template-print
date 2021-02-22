@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "vue@2.6.9",
+      "destination": "lib/vue/",
+      "files": [
+        "vue.min.js"
+      ]
+    },
+    {
+      "library": "FileSaver.js@2.0.5",
+      "destination": "lib/FileSaver.js/",
+      "files": [
+        "FileSaver.min.js"
+      ]
+    },
+    {
+      "library": "jquery@3.5.1",
+      "destination": "lib/jquery/",
+      "files": [
+        "jquery.min.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "wangeditor@4.6.6",
+      "destination": "lib/wangeditor/",
+      "files": [
+        "dist/wangEditor.js",
+        "dist/wangEditor.min.js"
+      ]
+    },
+    {
+      "library": "i18next@19.8.9",
+      "destination": "lib/i18next/"
+    }
+  ]
+}

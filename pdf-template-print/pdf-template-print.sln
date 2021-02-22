@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pdf-template-print", "pdf-template-print.csproj", "{A73A9A77-B0B1-4B9A-BC62-1B141CC9CE99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A73A9A77-B0B1-4B9A-BC62-1B141CC9CE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73A9A77-B0B1-4B9A-BC62-1B141CC9CE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73A9A77-B0B1-4B9A-BC62-1B141CC9CE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73A9A77-B0B1-4B9A-BC62-1B141CC9CE99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7137C46-464C-43D5-870C-5DAF1843940D}
+	EndGlobalSection
+EndGlobal

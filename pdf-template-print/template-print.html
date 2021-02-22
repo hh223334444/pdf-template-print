@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="page.css" rel="stylesheet" />
+    <script src="lib/vue/vue.min.js"></script>
+    <title></title>
+    <style media="print">
+        #toolbar-container {
+            display: none
+        }
+
+        #pagebreak {
+            display: none
+        }
+    </style>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .w-e-text {
+            overflow-y: hidden;
+            width: 21cm !important;
+            min-height: 28.9cm !important;
+            padding: 0cm 2cm !important;
+            margin: 0.5cm auto;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .page {
+            width: 21cm !important;
+            min-height: 29.7cm !important;
+            padding: 0cm 2cm !important;
+            margin: 0.5cm auto;
+            /*border: 1px #D3D3D3 solid;*/
+            /*border-radius: 5px;*/
+            background: white;
+            /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);*/
+        }
+
+        .w-e-text-container {
+            background-color: white !important;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .w-e-text {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="w-e-text-container" style="z-index:10000;">
+            <div contenteditable="false" v-html="datahtml" class="w-e-text">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        created() {
+            this.load();
+        },
+        data() {
+            return {
+                datahtml: ""
+            }
+        },
+        methods: {
+            load: function () {
+                this.datahtml = localStorage.getItem("html");
+            }
+        },
+    })
+</script>

@@ -20129,7 +20129,7 @@ function (_super) {
       while (arrayDom_a[i] !== this.getDom(EndElem_1.elems[0])) {
         d = dom_core_1["default"](arrayDom_a[i].nextElementSibling).elems[0];
 
-        if ((0, _indexOf["default"])(allowArray).call(allowArray, dom_core_1["default"](d).getNodeName()) !== -1) {
+          if ((0, _indexOf["default"])(allowArray).call(allowArray, dom_core_1["default"](d).getNodeName()) !== -1) {
           arrayDom_b.push(d);
           arrayDom_a.push(d);
         } else {

@@ -56,12 +56,13 @@
 <body>
      
     <div id="content">
+         
     </div>
  
 </body>
 </html>
 <script type="text/javascript">
-    
+    //当前方案：行高、缩进无法对 div中的内容生效
     const E = window.wangEditor
  
     const pageHeader = 'pageHeader' 
@@ -79,12 +80,50 @@
     //editor.config.showFullScreen = true;
     //editor.config.showMenuTooltips = true
     editor.config.height = 750
+    editor.config.focus = false
+    //配置多语言
     //editor.config.lang = 'en'
     //editor.i18next = window.i18next;
     //editor.config.languages['en'] = {
     //    wangEditor: en
     //}
+
+  
+
+    editor.txt.eventHooks.keyupEvents.push(PageContenHeiht)
+    
+    // 配置触发 onchange 的时间频率，默认为 200ms
+ 
+
     editor.create();
-    editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
+    editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><div id='pageheadimg' class='pageheadimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-bottom: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-bottom: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagecontent' class='content' style='height: 912px;width:100% ;'><p><br></p></div><div id='pagefooterimg' class='pagefooterimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-top: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-top: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
+
+    function PageContenHeiht(obj) {
+        var sel, range, contentHeight;
+        sel = window.getSelection();
+        
+        //keyup
+        if (obj.keyCode == 49) {
+            contentHeight = sel.focusNode.parentNode.parentNode.scrollHeight;
+            console.log("keyup:" + contentHeight);
+        }
+        //enter
+        if (obj.keyCode == 13) {
+            contentHeight = sel.focusNode.parentNode.scrollHeight;
+            console.log("enter:" + contentHeight);
+        }
+        if (contentHeight > 952) {
+            editor.txt.append("<div id='pagebreak' readonly='true' contenteditable='false'  style='min-height: 20px;width: 21cm;background-color: #eee;margin-left:-76px; z-index: 10001'></div><div style='page-break-after: always;'></div><p><br></p>")
+            editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><div id='pageheadimg' class='pageheadimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-bottom: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-bottom: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagecontent' class='content' style='height: 912px;width:100% ;'><p><br></p></div><div id='pagefooterimg' class='pagefooterimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-top: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-top: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
+
+        }
+        ////backspace
+        //if (obj.keyCode == 8) {
+        //    var contentHeight = sel.focusNode.parentNode.scrollHeight;
+        //    console.log("backspace:" + contentHeight);
+        //}
+         
+    }
    
+
 </script>

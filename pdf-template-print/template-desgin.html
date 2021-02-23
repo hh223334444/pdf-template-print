@@ -99,20 +99,23 @@
     editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><div id='pageheadimg' class='pageheadimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-bottom: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-bottom: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagecontent' class='content' style='height: 912px;width:100% ;'><p><br></p></div><div id='pagefooterimg' class='pagefooterimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-top: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-top: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
 
     function PageContenHeiht(obj) {
-        var sel, range, contentHeight;
+        var sel, range, contentHeight,parentId;
         sel = window.getSelection();
+        parentId = "";
         
         //keyup
         if (obj.keyCode == 49) {
             contentHeight = sel.focusNode.parentNode.parentNode.scrollHeight;
+            parentId = sel.focusNode.parentNode.parentNode.id;
             console.log("keyup:" + contentHeight);
         }
         //enter
         if (obj.keyCode == 13) {
             contentHeight = sel.focusNode.parentNode.scrollHeight;
+            parentId = sel.focusNode.parentNode.id;
             console.log("enter:" + contentHeight);
         }
-        if (contentHeight > 952) {
+        if (contentHeight > 912 && parentId.indexOf("pagecontent")!=-1) {
             editor.txt.append("<div id='pagebreak' readonly='true' contenteditable='false'  style='min-height: 20px;width: 21cm;background-color: #eee;margin-left:-76px; z-index: 10001'></div><div style='page-break-after: always;'></div><p><br></p>")
             editor.txt.append("<div id='pageheader' class='header' contenteditable='false'  style='min-height:65px;position: relative'><p style='position: absolute; bottom: 0;padding:0px;margin: 0px;width: 100%;'><br></p></div><div id='pageheadimg' class='pageheadimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-bottom: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-bottom: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagecontent' class='content' style='height: 912px;width:100% ;'><p><br></p></div><div id='pagefooterimg' class='pagefooterimg' readonly='true' contenteditable='fale' style='min-height: 20px;width: 18cm;margin-left: -19px;z-index: 10001;'><span style='border-top: 1px solid gray;border-right: 1px solid gray;float: left;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='border-top: 1px solid gray;border-left: 1px solid gray;float: right;'>&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div id='pagefooter' class='footer' contenteditable='false' style='min-height:65px;'><br></div>")
 
